@@ -33,7 +33,8 @@ const MobileOverlay = ({ bannerText }) => {
       // textAlign='center'
       bg='primary'
     >
-      <Text>Providing Legal Coverage for your</Text>
+      <Text
+        color='white'>Providing Legal Coverage for your</Text>
       <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
         adjustingSpeed={500}>
         {bannerText && bannerText.map(text => (

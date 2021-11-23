@@ -12,9 +12,7 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  useColorModeValue,
   useDisclosure,
-  useColorMode
 } from '@chakra-ui/react';
 
 import {
@@ -31,20 +29,18 @@ import { icons } from "react-icons"
 
 const Header = (props) => {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <Box>
       <Flex
         fontFamily='heading'
         bg='bgColor'
-        color='white'
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        borderColor='gray.900'
         align={'center'}>
 
         <Flex
@@ -92,7 +88,7 @@ const Header = (props) => {
                 isOpen ? <CloseIcon w={6} h={6} /> : <HamburgerIcon w={9} h={9} />
               }
               variant={'ghost'}
-              color={useColorModeValue('white', 'gray.900')}
+              color='primary'
               aria-label={'Toggle Navigation'}
             />
           </Flex>
@@ -111,9 +107,9 @@ const Header = (props) => {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.200', 'gray.600');
-  const linkHoverColor = useColorModeValue('hoverone', 'hoverone');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const linkColor = 'primary';
+  const linkHoverColor = 'hoverone'
+  const popoverContentBgColor = 'gray';
 
   return (
     <Stack direction={'row'} spacing={5} fontFamily='heading'>
@@ -204,11 +200,11 @@ const MobileNav = () => {
   return (
     <Stack
       fontFamily='heading'
-      bg={useColorModeValue('gray.800', 'white')}
+      bg='white'
       p={4}
       display={{ lg: 'none' }}
       borderBottom='2px solid'
-      borderBottomColor={useColorModeValue('white', 'gray.800')}
+      borderBottomColor='primary'
     >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
@@ -240,9 +236,9 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
         >
           <Text
             transition={'all .3s ease'}
-            _hover={{ color: useColorModeValue('red', 'red') }}
+            _hover={{ color: 'red' }}
             fontWeight={600}
-            color={useColorModeValue('gray.200', 'gray.600')}
+            color='gray.600'
           >
             {label}
           </Text>
@@ -264,7 +260,7 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
           pl={4}
           borderLeft={1}
           borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
+          borderColor='gray.700'
           align={'start'}
         >
           {children &&

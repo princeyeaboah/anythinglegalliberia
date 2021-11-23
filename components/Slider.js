@@ -107,10 +107,14 @@ export default function Slider({ sliderImg, bannerText }) {
           color='white'
           display={{ base: 'none', md: 'block' }}
         >
-          <Text>Providing</Text>
-          <Text>Legal</Text>
-          <Text>Coverage</Text>
-          <Text>for your</Text>
+          <Text
+            color='white'>Providing</Text>
+          <Text
+            color='white'>Legal</Text>
+          <Text
+            color='white'>Coverage</Text>
+          <Text
+            color='white'>for your</Text>
           <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
             adjustingSpeed={500}>
             {bannerText && bannerText.map(text => (
