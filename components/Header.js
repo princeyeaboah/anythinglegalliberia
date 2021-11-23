@@ -38,7 +38,7 @@ const Header = (props) => {
       <Flex
         fontFamily='heading'
         bg='bgColor'
-        color={useColorModeValue('white', 'gray.600')}
+        color='white'
         minH={'60px'}
         py={{ base: 2 }}
         px={{ base: 4 }}

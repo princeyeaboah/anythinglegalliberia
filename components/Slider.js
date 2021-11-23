@@ -18,13 +18,11 @@ import {
   Spinner,
   Slide,
   SlideFade,
-  useColorMode,
 } from "@chakra-ui/react"
 import NextImage from 'next/image'
 import NextLink from 'next/link'
 
 export default function Slider({ sliderImg, bannerText }) {
-  const { colorMode } = useColorMode()
   const [pause, setPause] = React.useState(false)
   const timer = React.useRef()
   const [sliderRef, slider] = useKeenSlider({
@@ -106,6 +104,7 @@ export default function Slider({ sliderImg, bannerText }) {
           fontWeight='medium'
           fontFamily='Banner'
           letterSpacing='wider'
+          color='white'
           display={{ base: 'none', md: 'block' }}
         >
           <Text>Providing</Text>
