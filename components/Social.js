@@ -43,6 +43,7 @@ function Social() {
           fontSize='3xl'
           textAlign='center'
           py={3}
+          color="white"
         >Follow us on</Text>
 
         <Flex flexDir={{ base: 'row', md: 'column' }}
