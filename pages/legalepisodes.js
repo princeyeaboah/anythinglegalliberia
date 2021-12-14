@@ -7,9 +7,9 @@ import {
   Text
 } from '@chakra-ui/react';
 import Header from '@/components/Header'
-import Episodes from '@/components/Episodes';
+import Episodes from '@/components/EpisodesWidget';
 
-const legalepisodes = () => {
+const legalepisodes = ({ episodes }) => {
 
   return (
     <>
@@ -21,7 +21,7 @@ const legalepisodes = () => {
       >
         <Box
         >
-          <Episodes episodeLength={100} />
+          <Episodes episodes={episodes} />
         </Box>
       </Box >
     </>

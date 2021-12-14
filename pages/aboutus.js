@@ -13,7 +13,7 @@ function aboutus() {
 
   return (
     <>
-    <Header />
+      <Header />
       <Stack
         px={{ base: '2em', md: '6em' }}
         py='1.6em'
@@ -33,9 +33,12 @@ function aboutus() {
             color='primary'
             fontSize='1.6em'
             paddingBottom={4}
-          >Welcome to the Official Website of Anything Liberia</Heading>
-          <Text>
-            The Rural Human Rights Activists Programme (RHRAP), Inc. is a human rights and peace organization that was established in December 1997 by a group of activists who believed that the message of human rights should be spread into the rural areas so as to educate the rural inhabitants on issues of human rights, peace and social developments. It is an non-profitable, non-governmental, and none-political organization. RHRAP has a five men board of directors that run the final decision for the organization.
+          >Welcome to the Official Website of Liblaw</Heading>
+          <Text
+            textAlign={'justify'}
+            lineHeight='8'
+          >
+            Liblaw is the ultimate in lawyering and Social research in Liberia. Founded in 2021, the goal of Anything Liberia is to produce cutting edge products through a combination of technology, world-class analysis, and local context. ALL aspires to provide timely and high quality legal and social research products that inform decision-makers at the highest levels nationally and internationally. Professional responsibility and high ethical standards are mainstreamed elements of ALL’s approach to the provision of services for clients.
           </Text>
         </Stack>
         <Stack
@@ -45,52 +48,20 @@ function aboutus() {
             borderLeft='10px solid red'
             px={3}
           >
-          <Heading
-            as='h3'
-            fontFamily='body'
-            letterSpacing={2}
-            fontWeight='bold'
-            color='primary'
-            fontSize='x-large'
-          >Mission</Heading>
+            <Heading
+              as='h3'
+              fontFamily='body'
+              letterSpacing={2}
+              fontWeight='bold'
+              color='primary'
+              fontSize='x-large'
+            >KEY FACTS</Heading>
           </Box>
-          <Text>To build an environment where human rights and democratic principles will take firm roots and flourish at all levels.</Text>
-        </Stack>
-        <Stack
-          p='1.5em'>
-          <Box
-            mb={5}
-            borderLeft='10px solid red'
-            px={3}
-          >
-          <Heading
-            as='h3'
-            fontFamily='body'
-            letterSpacing={2}
-            fontWeight='bold'
-            color='primary'
-            fontSize='x-large'
-          >Vision</Heading>
-          </Box>
-          <Text>RHRAP envisages the world as a place where there is a rule of law, lasting peace, stability amongst its people.</Text>
-        </Stack>
-        <Stack
-          p='1.5em'>
-          <Box
-            mb={5}
-            borderLeft='10px solid red'
-            px={3}
-          >
-          <Heading
-            as='h3'
-            fontFamily='body'
-            letterSpacing={2}
-            fontWeight='bold'
-            color='primary'
-            fontSize='x-large'
-          >Goal</Heading>
-          </Box>
-          <Text>RHRAP envisages the world as a place where there is a rule of law, lasting peace, stability amongst its people.</Text>
+          <Text>Top legal analysis wizardry</Text>
+          <Text>Top in the aesthetics of social science research</Text>
+          <Text>Combines technical know-how with style</Text>
+          <Text>20 years of combined experience</Text>
+          <Text>We are ready!!!</Text>
         </Stack>
       </Stack>
     </>

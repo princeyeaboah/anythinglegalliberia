@@ -22,6 +22,7 @@ import {
 } from '@chakra-ui/icons'
 import { FiFile } from "react-icons/fa";
 import Header from '@/components/Header'
+import Head from 'next/head'
 
 const ContactUs = () => {
 
@@ -48,35 +49,30 @@ const ContactUs = () => {
 
   return (
     <>
-      <Header/>
+      <Head>
+        <title>IWL | Contact us</title>
+        <meta name="description" content="Integrity Watch Liberia, IWL, NGO in Liberia, CSO in Liberia, Anti-corruption Team" />
+      </Head>
+      <Header />
       <Box
-      bg='white'
-      py='2em'
-      color='primary'
+        bg='white'
+        py='2em'
+        color='primary'
       >
-        
+
         <Container
           px={8}
         >
-        <Box
-        py={5}
-        >
-          <Text
-          textAlign='justify'
-          fontSize='lg'
-          marginBottom={5}
-          color='black'
-          >Send us a direct message by filling the form below with the required information and clicking submit.</Text>
-        <Box
-        p={2}
-        bg="gray.300"
-        >
-          <Text
-            color='gray.600'
-            fontFamily='arial'
-          >This form is secured and spam free.</Text>
-        </Box>
-        </Box>
+          <Box
+            py={5}
+          >
+            <Text
+              textAlign='justify'
+              fontSize='2xl'
+              marginBottom={5}
+              color='black'
+            >Send us a message!</Text>
+          </Box>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -94,19 +90,22 @@ const ContactUs = () => {
                         ({ field, form }) => {
                           return (
                             <FormControl
-                              isInvalid={form.errors['fullName'] && form.touched['fullName']}
                             >
-                              <FormLabel
-                                fontSize='md'
-                                htmlFor='reportTitle'
-                              >Full Name
-                              </FormLabel>
                               <Input
-                                _hover={{ borderColor: 'primary' }}
-                                borderWidth='1px'
+                                //_hover={{ borderColor: 'primary' }}
+                                borderWidth='2px'
                                 borderColor='black'
                                 id='fullName'
                                 {...field}
+                                placeholder='Fullname'
+                                _placeholder={{
+                                  color: 'gray.600',
+                                  letterSpacing: 'widest'
+                                }}
+                                _hover={{
+                                  borderColor: 'hoverone',
+                                  transition: 'all .8s ease'
+                                }}
                               />
                               <FormErrorMessage>{form.errors['fullName']}</FormErrorMessage>
                             </FormControl>
@@ -124,18 +123,23 @@ const ContactUs = () => {
                         ({ field, form }) => {
                           return (
                             <FormControl
-                              isInvalid={form.errors['email'] && form.touched['email']}
+
                             >
-                              <FormLabel
-                                fontSize='md'
-                                htmlFor='reportTitle'
-                              >Email Address
-                              </FormLabel>
+
                               <Input
-                                _hover={{ borderColor: 'primary' }}
-                                borderWidth='1px'
+                                //_hover={{ borderColor: 'primary' }}
+                                borderWidth='2px'
                                 borderColor='black'
                                 id='email'
+                                placeholder='Email Address'
+                                _placeholder={{
+                                  color: 'gray.600',
+                                  letterSpacing: 'widest'
+                                }}
+                                _hover={{
+                                  borderColor: 'hoverone',
+                                  transition: 'all .8s ease'
+                                }}
                                 {...field}
                               />
                               <FormErrorMessage>{form.errors['email']}</FormErrorMessage>
@@ -154,18 +158,21 @@ const ContactUs = () => {
                         ({ field, form }) => {
                           return (
                             <FormControl
-                              isInvalid={form.errors['message'] && form.touched['message']}
                             >
-                              <FormLabel
-                                fontSize='md'
-                                htmlFor='message'
-                              >Message
-                              </FormLabel>
                               <Textarea
-                                _hover={{ borderColor: 'primary' }}
-                                borderWidth='1px'
+                                //_hover={{ borderColor: 'primary' }}
+                                borderWidth='2px'
                                 borderColor='black'
                                 id='message'
+                                placeholder='Message'
+                                _placeholder={{
+                                  color: 'gray.600',
+                                  letterSpacing: 'widest'
+                                }}
+                                _hover={{
+                                  borderColor: 'hoverone',
+                                  transition: 'all .8s ease'
+                                }}
                                 {...field}
                               />
                               <FormErrorMessage>{form.errors['message']}</FormErrorMessage>
@@ -203,7 +210,7 @@ const ContactUs = () => {
                           status: "success",
                           isClosable: true,
                         })}
-                      disabled={!(formik.isValid && formik.dirty)}>Submit</Button>
+                      disabled={!(formik.isValid && formik.dirty)}>Send</Button>
                   </Form>
                 )
               }

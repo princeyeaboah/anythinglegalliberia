@@ -25,7 +25,8 @@ function Social() {
   return (
     <Flex
       flexDir={{ base: 'column', md: 'row' }}
-      background='primary'
+      background='white'
+      color={'primary'}
       justify='space-between'
       p={10}
     >
@@ -43,7 +44,7 @@ function Social() {
           fontSize='3xl'
           textAlign='center'
           py={3}
-          color="white"
+          color="primary"
         >Follow us on</Text>
 
         <Flex flexDir={{ base: 'row', md: 'column' }}
@@ -61,7 +62,7 @@ function Social() {
                 as={FaFacebookF}
                 w={10}
                 h={10}
-                color='white'
+                color='primary'
                 _hover={{
                   color: 'hoverone'
                 }}
@@ -76,7 +77,7 @@ function Social() {
                 as={FaTwitter}
                 w={10}
                 h={10}
-                color='white'
+                color='primary'
                 _hover={{
                   color: 'hoverone'
                 }} />
@@ -90,7 +91,7 @@ function Social() {
                 as={FaEnvelope}
                 w={10}
                 h={10}
-                color='white'
+                color='primary'
                 _hover={{
                   color: 'hoverone'
                 }} />
@@ -105,7 +106,7 @@ function Social() {
                 as={FaYoutube}
                 w={10}
                 h={10}
-                color='white'
+                color='primary'
                 _hover={{
                   color: 'hoverone'
                 }} />
@@ -120,7 +121,7 @@ function Social() {
                 as={FaLinkedinIn}
                 w={10}
                 h={10}
-                color='white'
+                color='primary'
                 _hover={{
                   color: 'hoverone'
                 }} />

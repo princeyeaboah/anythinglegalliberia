@@ -17,7 +17,7 @@ const Footer = () => {
       borderTop='2px solid gray'
     >
       <Flex>
-        <Text fontSize='lg' letterSpacing='wider' fontWeight='medium'>&copy;Anything Legal Liberia | All Rights Reserved.</Text>
+        <Text fontSize='lg' letterSpacing='wider' fontWeight='medium'>&copy;Liblaw | All Rights Reserved.</Text>
       </Flex>
       <Flex>
         {/* <Text> <Text fontWeight='bold' display='inline'>&#60;&#62; </Text> with <Text fontWeight='bold' display='inline'>&hearts; </Text> by: <Link href='https://supastack.com'>SuperStack</Link></Text> */}

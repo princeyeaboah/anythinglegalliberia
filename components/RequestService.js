@@ -22,20 +22,11 @@ import {
 import React, { useState } from 'react'
 import * as Yup from 'yup'
 import { Formik, Field, Form } from 'formik'
+import { graphqlSync } from 'graphql'
 
 const RequestService = () => {
-  const { colorMode } = useColorMode();
   const toast = useToast();
-  const [selectedDocs, setSelectedDocs] = useState('')
   const [formValues, setFormValues] = useState(null)
-
-  const listFiles = (files) => {
-    let result;
-    if (files) {
-      result = Object.values(files)
-    }
-    return result
-  }
 
   const servicesOption = [
     { key: 'Select a Service', value: '' },
@@ -77,7 +68,7 @@ const RequestService = () => {
 
   return (
     <Box
-      color='white'
+      color='primary'
       pr={{ base: '0', md: '7em' }}
       pl={{ base: '0', md: '2em' }}
 
@@ -88,8 +79,8 @@ const RequestService = () => {
         fontWeight='thin'
         p={5}
         my={5}
-        bg={'white'}
-        color='primary'
+        bg='primary'
+        color='white'
         borderLeft='10px solid red'
         borderRightRadius={10}
         py={5}>
@@ -117,7 +108,7 @@ const RequestService = () => {
                         //isInvalid={form.errors['requestSenderService'] && form.touched['requestSenderService']}
                         >
                           {/* <FormLabel
-                            fontFamily='heading'
+                            fontFamly='heading'
                             fontSize='lg'
                             letterSpacing='wide'
                             htmlFor='requestSenderService'
@@ -125,17 +116,23 @@ const RequestService = () => {
                           </FormLabel> */}
                           <Select
                             borderWidth='2px'
-                            borderColor='white'
-                            color='white'
+                            borderColor='primary'
                             id='requestSenderService'
+                            bg='white'
+                            color='gray.900'
                             _hover={{
                               borderColor: 'hoverone',
-                              transition: 'all .8s ease'
+                              transition: 'all .8s ease',
+                              color: 'white',
+                              bg: 'gray'
                             }}
                             {...field}
                           >
                             {servicesOption.map(option => (
-                              <option key={option.value} value={option.value}>{option.key}</option>
+                              <option
+                                key={option.value}
+                                value={option.value}
+                              >{option.key}</option>
                             ))}
                           </Select>
                           <FormErrorMessage>{form.errors['requestSenderService']}</FormErrorMessage>
@@ -165,11 +162,11 @@ const RequestService = () => {
                           </FormLabel> */}
                           <Input
                             borderWidth='2px'
-                            borderColor='white'
-                            color='white'
+                            borderColor='primary'
+                            color='primary'
                             placeholder='Fullname'
                             _placeholder={{
-                              color: 'white',
+                              color: 'primary',
                               letterSpacing: 'widest'
                             }}
                             _hover={{
@@ -206,11 +203,11 @@ const RequestService = () => {
                           </FormLabel> */}
                           <Input
                             borderWidth='2px'
-                            borderColor='white'
-                            color='white'
+                            borderColor='primary'
+                            color='primary'
                             placeholder='Enter your email address'
                             _placeholder={{
-                              color: 'white',
+                              color: 'primary',
                               letterSpacing: 'widest'
                             }}
                             _hover={{
@@ -243,8 +240,9 @@ const RequestService = () => {
                   }}
                   w='100%'
                   border='none'
-                  bg='white'
-                  color='primary'
+                  bg='primary'
+                  color='white'
+                  letterSpacing={'wider'}
                   transition={'all .5s ease'}
                   type='submit'
                   disabled={!(formik.isValid && formik.dirty)}>Submit Request</Button>

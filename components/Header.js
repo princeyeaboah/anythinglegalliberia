@@ -61,7 +61,7 @@ const Header = (props) => {
             alt='logo'
             width='100px'
             height='125px'
-            src="/img/anythinglegal_Logo_2.png" />
+            src="/img/liblaw_logo.png" />
 
           <Flex
             display={{ base: 'none', md: 'none', lg: 'flex' }}
@@ -109,7 +109,7 @@ const Header = (props) => {
 const DesktopNav = () => {
   const linkColor = 'primary';
   const linkHoverColor = 'hoverone'
-  const popoverContentBgColor = 'gray';
+  const popoverContentBgColor = 'primary';
 
   return (
     <Stack direction={'row'} spacing={5} fontFamily='heading'>
@@ -117,21 +117,18 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <NextLink
+              <Link
                 href={navItem.href ?? '#'}
-              >
-                <Link
-                  p={2}
-                  fontSize={'md'}
-                  fontWeight='bold'
-                  color={linkColor}
-                  _hover={{
-                    textDecoration: 'none',
-                    color: linkHoverColor,
-                  }}>
-                  {navItem.label}
-                </Link>
-              </NextLink>
+                p={2}
+                fontSize={'md'}
+                fontWeight='bold'
+                color={linkColor}
+                _hover={{
+                  textDecoration: 'none',
+                  color: linkHoverColor,
+                }}>
+                {navItem.label}
+              </Link>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -158,41 +155,40 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }, NavItem) => {
   return (
-    <NextLink
+    <Link
       href={href}
       fontFamily='heading'
+      role={'group'}
+      display={'block'}
+      p={2}
+      rounded={'md'}
+      _hover='hoverone'
     >
-      <Link
-        //href={href}
-        role={'group'}
-        display={'block'}
-        p={2}
-        rounded={'md'}
-        _hover='hoverone'>
-        <Stack direction={'row'} align={'center'}>
-          <Box>
-
-            <Text
-              transition={'all .3s ease'}
-              _groupHover={{ color: '#000080' }}
-              fontWeight={500}>
-              {label}
-            </Text>
-            <Text fontSize={'sm'}>{subLabel}</Text>
-          </Box>
-          <Flex
+      <Stack
+        direction={'row'}
+        align={'center'}
+      >
+        <Box>
+          <Text
             transition={'all .3s ease'}
-            transform={'translateX(-10px)'}
-            opacity={0}
-            _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-            justify={'flex-end'}
-            align={'center'}
-            flex={1}>
-            <Icon color={'#000080'} w={5} h={5} as={ChevronRightIcon} />
-          </Flex>
-        </Stack>
-      </Link>
-    </NextLink>
+            _groupHover={{ color: 'hoverone' }}
+            fontWeight={500}>
+            {label}
+          </Text>
+          <Text fontSize={'sm'}>{subLabel}</Text>
+        </Box>
+        <Flex
+          transition={'all .3s ease'}
+          transform={'translateX(-10px)'}
+          opacity={0}
+          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
+          justify={'flex-end'}
+          align={'center'}
+          flex={1}>
+          <Icon color={'hoverone'} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
+    </Link>
   );
 };
 
@@ -227,22 +223,22 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
         justify={'space-between'}
         align={'center'}
         transition={'all .3s ease'}
-        _hover={{
-          textDecoration: 'none',
-          color: 'red'
-        }}>
-        <NextLink
+      >
+        <Link
           href={href ?? '#'}
         >
           <Text
             transition={'all .3s ease'}
-            _hover={{ color: 'red' }}
+            _hover={{
+              textDecoration: 'none',
+              color: 'red'
+            }}
             fontWeight={600}
             color='gray.600'
           >
             {label}
           </Text>
-        </NextLink>
+        </Link>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -250,13 +246,14 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
             transform={isOpen ? 'rotate(180deg)' : ''}
             w={6}
             h={6}
+            _hover={{ color: 'red' }}
+            color='gray.600'
           />
         )}
       </Flex>
 
       <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
         <Stack
-          mt={2}
           pl={4}
           borderLeft={1}
           borderStyle={'solid'}
@@ -265,18 +262,16 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <NextLink
+              <Link
                 key={child.label}
                 href={child.href}
+                color="gray.600"
+                py={2}
+                transition={'all .3s ease'}
+                _hover={{ color: 'red' }}
               >
-                <Link
-                  py={2}
-                  transition={'all .3s ease'}
-                  _hover={{ color: 'primary' }}
-                >
-                  {child.label}
-                </Link>
-              </NextLink>
+                {child.label}
+              </Link>
             ))}
         </Stack>
       </Collapse>
@@ -296,11 +291,57 @@ const NAV_ITEMS = [
   },
   {
     label: 'Services',
-    href: '/services'
+    href: '/services',
+    children: [
+      {
+        label: 'Consultancy',
+        href: '/consultancy'
+      }
+    ]
   },
   {
-    label: 'Reports',
-    href: '/reports'
+    label: 'Liberian Laws',
+    href: '/liberianlaws',
+    children: [
+      {
+        label: 'Constitution',
+        href: '/constitution'
+      },
+      {
+        label: 'Statutes',
+        href: '/statutes'
+      },
+      {
+        label: 'Case Laws',
+        href: '/caselaws'
+      },
+      {
+        label: 'Executive Orders',
+        href: '/executiveorder'
+      },
+      {
+        label: 'Regulations',
+        href: '/regulations'
+      },
+      {
+        label: 'Treaties & Conventions',
+        href: '/treatiesandconventions'
+      }
+    ]
+  },
+  {
+    label: 'Publications',
+    href: '/publications',
+    children: [
+      {
+        label: 'Articles',
+        href: '/articles'
+      },
+      {
+        label: 'Research',
+        href: 'research'
+      }
+    ]
   },
   {
     label: 'About Us',

@@ -9,7 +9,6 @@ import {
   IconButton,
   Icon,
   Button,
-  useDisclosure,
   Stack,
   Text,
   Center,
@@ -22,7 +21,8 @@ import {
 import NextImage from 'next/image'
 import NextLink from 'next/link'
 
-export default function Slider({ sliderImg, bannerText }) {
+export default function Slider({ sliderImages, bannerTexts }) {
+
   const [pause, setPause] = React.useState(false)
   const timer = React.useRef()
   const [sliderRef, slider] = useKeenSlider({
@@ -71,62 +71,69 @@ export default function Slider({ sliderImg, bannerText }) {
           ref={sliderRef}
           className="keen-slider"
         >
-          {sliderImg && sliderImg.map(img => {
+          {sliderImages && sliderImages.map(img => {
             return <Image
               alt=""
               key={img.id}
-              src={`${img.url}`}
+              src={`${img.sliderImageFile.url}`}
               className="keen-slider__slide number-slide1 slide"
               objectFit='cover' />
           })}
         </Box>
-        <Box
-          position="absolute"
-          h="500px"
-          width="550px"
-          top="0"
-          bg='primary'
-          opacity='.7'
-          transform='skew(-15deg)'
-          ml='-100px'
-          overflow='hidden'
-          display={{ base: 'none', md: 'block' }}
-          borderRight='10px solid red'
-        >
+        {sliderImages && <>
+          <Box
+            position="absolute"
+            h="500px"
+            width="550px"
+            top="0"
+            bg='primary'
+            opacity='.7'
+            transform='skew(-15deg)'
+            ml='-100px'
+            overflow='hidden'
+            display={{ base: 'none', md: 'block' }}
+            borderRight='10px solid red'
+          >
 
-        </Box>
-        <Box
-          position='absolute'
-          top='10'
-          width="350px"
-          px={10}
-          fontSize='2.8em'
-          fontWeight='medium'
-          fontFamily='Banner'
-          letterSpacing='wider'
-          color='white'
-          display={{ base: 'none', md: 'block' }}
-        >
-          <Text
-            color='white'>Providing</Text>
-          <Text
-            color='white'>Legal</Text>
-          <Text
-            color='white'>Coverage</Text>
-          <Text
-            color='white'>for your</Text>
-          <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
-            adjustingSpeed={500}>
-            {bannerText && bannerText.map(text => (
-              <Text
-                key={text.id}
-                bgGradient='linear(to-l, orange, #FF0080)'
-                backgroundClip='text'
-              >{text.text}</Text>
-            ))
-            }
-          </TextLoop>{" "}
-        </Box>
+          </Box>
+          <Box
+            position='absolute'
+            top='10'
+            width="350px"
+            px={10}
+            fontSize='2.8em'
+            fontWeight='medium'
+            fontFamily='Banner'
+            letterSpacing='wider'
+            color='white'
+            display={{ base: 'none', md: 'block' }}
+          >
+            <Text
+              color='white'
+            >Providing</Text>
+            <Text
+              color='white'
+            >Legal</Text>
+            <Text
+              color='white'
+            >Coverage</Text>
+            <Text
+              color='white'
+            >for your</Text>
+            <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
+              adjustingSpeed={500}>
+              {bannerTexts && bannerTexts.map(text => (
+                <Text
+                  key={text.id}
+                  bgGradient='linear(to-l, orange, #FF0080)'
+                  backgroundClip='text'
+                >{text.textLabel}</Text>
+              ))
+              }
+            </TextLoop>{" "}
+          </Box>
+        </>
+        }
       </Box>
     </>
   )

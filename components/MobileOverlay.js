@@ -21,7 +21,7 @@ import {
 import NextImage from 'next/image'
 import NextLink from 'next/link'
 
-const MobileOverlay = ({ bannerText }) => {
+const MobileOverlay = ({ bannerTexts }) => {
   return (
     <Box
       display={{ base: 'block', md: 'none' }}
@@ -37,15 +37,15 @@ const MobileOverlay = ({ bannerText }) => {
         color='white'>Providing Legal Coverage for your</Text>
       <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
         adjustingSpeed={500}>
-        {bannerText && bannerText.map(text => (
+        {bannerTexts && bannerTexts.map(text => (
           <Text
             key={text.id}
             bgGradient='linear(to-l, orange, #FF0080)'
             backgroundClip='text'
-          >{text.text}</Text>
+          >{text.textLabel}</Text>
         ))
         }
-      </TextLoop>{""}.
+      </TextLoop>{""}
     </Box>
   )
 }
