@@ -47,7 +47,7 @@ const Header = (props) => {
           flex={{ base: 1 }}
           justify={{ base: 'center', md: 'space-between' }}
           py={2}
-          px={8}
+          pr={8}
         >
           {/* <Heading
             letterSpacing='widest'
@@ -59,8 +59,8 @@ const Header = (props) => {
           </Heading> */}
           <NextImage
             alt='logo'
-            width='100px'
-            height='125px'
+            width='90px'
+            height='115px'
             src="/img/liblaw_logo.png" />
 
           <Flex
@@ -76,14 +76,13 @@ const Header = (props) => {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={6}>
-
+          spacing={6}
+        >
           <Flex
             display={{ base: 'flex', md: 'flex', lg: 'none' }}>
             <IconButton
               onClick={onToggle}
               bg='white'
-
               icon={
                 isOpen ? <CloseIcon w={6} h={6} /> : <HamburgerIcon w={9} h={9} />
               }
@@ -125,7 +124,7 @@ const DesktopNav = () => {
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
-                  color: linkHoverColor,
+                  color: 'hoverone',
                 }}>
                 {navItem.label}
               </Link>
@@ -138,7 +137,8 @@ const DesktopNav = () => {
                 bg={popoverContentBgColor}
                 p={4}
                 rounded={'xl'}
-                minW={'sm'}>
+                minW={'sm'}
+              >
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -170,6 +170,7 @@ const DesktopSubNav = ({ label, href, subLabel }, NavItem) => {
       >
         <Box>
           <Text
+            color='white'
             transition={'all .3s ease'}
             _groupHover={{ color: 'hoverone' }}
             fontWeight={500}>
