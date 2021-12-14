@@ -20,6 +20,7 @@ const ClientTestimony = ({ testimony }) => {
         as={Stack}
         spacing={12}
         p={5}
+        color='white'
       >
         <Stack
           bg='blackAlpha.500'
