@@ -62,7 +62,9 @@ export default function Home({ sliderImages, bannerTexts, episodes, testimonies 
             spacing={0}
             align={'center'}
             pt={10}
-            px={10}>
+            px={10}
+            color='white'
+          >
             <Heading>Our Clients Speak</Heading>
             <Text>We have been working with clients around the world</Text>
           </Stack>
