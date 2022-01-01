@@ -23,6 +23,7 @@ import {
   SunIcon,
   MoonIcon
 } from '@chakra-ui/icons'
+
 import NextLink from 'next/link'
 import NextImage from 'next/image'
 import { icons } from "react-icons"
@@ -45,7 +46,7 @@ const Header = (props) => {
 
         <Flex
           flex={{ base: 1 }}
-          justify={{ base: 'center', md: 'space-between' }}
+          justify={{ base: '', md: 'space-between' }}
           py={2}
           pr={8}
         >
@@ -59,10 +60,9 @@ const Header = (props) => {
           </Heading> */}
           <NextImage
             alt='logo'
-            width='90px'
-            height='115px'
-            src="/img/liblaw_logo.png" />
-
+            width='100px'
+            height='120px'
+            src="/img/liblaw_logo.jpg" />
           <Flex
             display={{ base: 'none', md: 'none', lg: 'flex' }}
             ml={10}
@@ -71,7 +71,6 @@ const Header = (props) => {
             <DesktopNav />
           </Flex>
         </Flex>
-
         <Stack
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
@@ -116,18 +115,22 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
-              <Link
+              <NextLink
                 href={navItem.href ?? '#'}
-                p={2}
-                fontSize={'md'}
-                fontWeight='bold'
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: 'hoverone',
-                }}>
-                {navItem.label}
-              </Link>
+                passHref>
+                <Link
+                  p={2}
+                  fontSize={'md'}
+                  fontWeight='bold'
+                  color={linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: 'hoverone',
+                  }}
+                >
+                  {navItem.label}
+                </Link>
+              </NextLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -155,7 +158,7 @@ const DesktopNav = () => {
 
 const DesktopSubNav = ({ label, href, subLabel }, NavItem) => {
   return (
-    <Link
+    <NextLink
       href={href}
       fontFamily='heading'
       role={'group'}
@@ -163,7 +166,7 @@ const DesktopSubNav = ({ label, href, subLabel }, NavItem) => {
       p={2}
       rounded={'md'}
       _hover='hoverone'
-    >
+      passHref>
       <Stack
         direction={'row'}
         align={'center'}
@@ -189,7 +192,7 @@ const DesktopSubNav = ({ label, href, subLabel }, NavItem) => {
           <Icon color={'hoverone'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
-    </Link>
+    </NextLink>
   );
 };
 
@@ -225,9 +228,9 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
         align={'center'}
         transition={'all .3s ease'}
       >
-        <Link
+        <NextLink
           href={href ?? '#'}
-        >
+          passHref>
           <Text
             transition={'all .3s ease'}
             _hover={{
@@ -239,7 +242,7 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
           >
             {label}
           </Text>
-        </Link>
+        </NextLink>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -263,7 +266,7 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link
+              <NextLink
                 key={child.label}
                 href={child.href}
                 color="gray.600"
@@ -272,7 +275,7 @@ const MobileNavItem = ({ label, children, href }, NavItem) => {
                 _hover={{ color: 'red' }}
               >
                 {child.label}
-              </Link>
+              </NextLink>
             ))}
         </Stack>
       </Collapse>

@@ -30,22 +30,13 @@ const MobileOverlay = ({ bannerTexts }) => {
       fontWeight='medium'
       fontFamily='Banner'
       letterSpacing='wider'
-      // textAlign='center'
+      textAlign='center'
       bg='primary'
     >
       <Text
-        color='white'>Providing Legal Coverage for your</Text>
-      <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
-        adjustingSpeed={500}>
-        {bannerTexts && bannerTexts.map(text => (
-          <Text
-            key={text.id}
-            bgGradient='linear(to-l, orange, #FF0080)'
-            backgroundClip='text'
-          >{text.textLabel}</Text>
-        ))
-        }
-      </TextLoop>{""}
+        color='white'
+
+      >The Home of Legal <Text color='red.600' display={'inline'}>Analysis</Text> and <Text color='red.600' display={'inline'}>Research</Text></Text>
     </Box>
   )
 }

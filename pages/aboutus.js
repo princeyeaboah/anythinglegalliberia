@@ -38,7 +38,7 @@ function aboutus() {
             textAlign={'justify'}
             lineHeight='8'
           >
-            Liblaw is the ultimate in lawyering and Social research in Liberia. Founded in 2021, the goal of Anything Liberia is to produce cutting edge products through a combination of technology, world-class analysis, and local context. ALL aspires to provide timely and high quality legal and social research products that inform decision-makers at the highest levels nationally and internationally. Professional responsibility and high ethical standards are mainstreamed elements of ALL’s approach to the provision of services for clients.
+            Liblaw is the ultimate in lawyering and Social research in Liberia. Founded in 2021, the goal of LibLaw is to produce cutting edge products through a combination of technology, world-class analysis, and local context. ALL aspires to provide timely and high quality legal and social research products that inform decision-makers at the highest levels nationally and internationally. Professional responsibility and high ethical standards are mainstreamed elements of ALL’s approach to the provision of services for clients.
           </Text>
         </Stack>
         <Stack

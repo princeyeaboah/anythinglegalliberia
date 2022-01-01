@@ -54,79 +54,71 @@ function Social() {
           height={{ md: '20em' }}
           py={2}
         >
-          <NextLink
-            href=""
-          ><Link>
-              <Icon
-                transition={'all .5s ease'}
-                as={FaFacebookF}
-                w={10}
-                h={10}
-                color='primary'
-                _hover={{
-                  color: 'hoverone'
-                }}
-              />
-            </Link>
-          </NextLink>
-          <NextLink
-            href=""
-          ><Link>
-              <Icon
-                transition={'all .5s ease'}
-                as={FaTwitter}
-                w={10}
-                h={10}
-                color='primary'
-                _hover={{
-                  color: 'hoverone'
-                }} />
-            </Link>
-          </NextLink>
-          <NextLink
-            href=""
-          ><Link>
-              <Icon
-                transition={'all .5s ease'}
-                as={FaEnvelope}
-                w={10}
-                h={10}
-                color='primary'
-                _hover={{
-                  color: 'hoverone'
-                }} />
-            </Link>
-          </NextLink>
-          <NextLink
-            href=""
-          >
-            <Link>
-              <Icon
-                transition={'all .5s ease'}
-                as={FaYoutube}
-                w={10}
-                h={10}
-                color='primary'
-                _hover={{
-                  color: 'hoverone'
-                }} />
-            </Link>
-          </NextLink>
-          <NextLink
-            href=""
-          >
-            <Link>
-              <Icon
-                transition={'all .5s ease'}
-                as={FaLinkedinIn}
-                w={10}
-                h={10}
-                color='primary'
-                _hover={{
-                  color: 'hoverone'
-                }} />
-            </Link>
-          </NextLink>
+          <Link
+            href='https://web.facebook.com/Liblaw-110597158089492'
+            target={'_blank'}>
+            <Icon
+              transition={'all .5s ease'}
+              as={FaFacebookF}
+              w={10}
+              h={10}
+              color='primary'
+              _hover={{
+                color: 'hoverone'
+              }}
+            />
+          </Link>
+          <Link
+            href='https://mobile.twitter.com/LiblawLiberia'
+            target={'_blank'}>
+            <Icon
+              transition={'all .5s ease'}
+              as={FaTwitter}
+              w={10}
+              h={10}
+              color='primary'
+              _hover={{
+                color: 'hoverone'
+              }} />
+          </Link>
+          <Link
+            href='mailto:info@liblaw.org'>
+            <Icon
+              transition={'all .5s ease'}
+              as={FaEnvelope}
+              w={10}
+              h={10}
+              color='primary'
+              _hover={{
+                color: 'hoverone'
+              }} />
+          </Link>
+          <Link
+            href='https://youtube.com/channel/UCWAIrH_rgdmbkUyjEha2btg'
+            target={'_blank'}>
+            <Icon
+              transition={'all .5s ease'}
+              as={FaYoutube}
+              w={10}
+              h={10}
+              color='primary'
+              _hover={{
+                color: 'hoverone'
+              }} />
+          </Link>
+          <Link
+            href='https://www.linkedin.com/in/liblaw-liberia-901599229/'
+            target={'_blank'}>
+            <Icon
+              transition={'all .5s ease'}
+              as={FaLinkedinIn}
+              w={10}
+              h={10}
+              color='primary'
+              _hover={{
+                color: 'hoverone'
+              }} />
+          </Link>
         </Flex>
       </Flex>
     </Flex >

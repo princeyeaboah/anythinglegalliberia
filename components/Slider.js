@@ -110,27 +110,7 @@ export default function Slider({ sliderImages, bannerTexts }) {
           >
             <Text
               color='white'
-            >Providing</Text>
-            <Text
-              color='white'
-            >Legal</Text>
-            <Text
-              color='white'
-            >Coverage</Text>
-            <Text
-              color='white'
-            >for your</Text>
-            <TextLoop springConfig={{ stiffness: 70, damping: 31 }}
-              adjustingSpeed={500}>
-              {bannerTexts && bannerTexts.map(text => (
-                <Text
-                  key={text.id}
-                  bgGradient='linear(to-l, orange, #FF0080)'
-                  backgroundClip='text'
-                >{text.textLabel}</Text>
-              ))
-              }
-            </TextLoop>{" "}
+            >The Home of Legal <Text color='red.600' display={'inline'}>Analysis</Text> and <Text color='red.600' display={'inline'}>Research</Text></Text>
           </Box>
         </>
         }
