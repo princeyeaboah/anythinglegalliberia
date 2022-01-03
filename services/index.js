@@ -100,3 +100,22 @@ export const getPostDetail = async (slug) => {
   return result.activity;
 }
 
+export const getSearchEpisodes = async () => {
+  const query = gql`
+query MyQuery {
+  legalEpisodes(orderBy: createdAt_DESC) {
+    episodeTitle
+    episodeLink
+    episodeDescription
+    id
+    createdAt
+    episodePoster {
+      url
+    }
+  }
+}
+`
+  const result = await request(graphqlAPI, query);
+
+  return result.legalEpisodes;
+}

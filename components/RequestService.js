@@ -85,7 +85,7 @@ const RequestService = () => {
         borderRightRadius={10}
         py={5}>
         <Text>
-          Please fill out the form to send us a quick request for any of our services.
+          Fill out the form to signup for our newsletter.
         </Text>
       </Box>
       <Formik
@@ -97,52 +97,6 @@ const RequestService = () => {
           formik => {
             return (
               <Form>
-
-                <Field
-                  name='requestSenderService'
-                >
-                  {
-                    ({ field, form }) => {
-                      return (
-                        <FormControl
-                        //isInvalid={form.errors['requestSenderService'] && form.touched['requestSenderService']}
-                        >
-                          {/* <FormLabel
-                            fontFamly='heading'
-                            fontSize='lg'
-                            letterSpacing='wide'
-                            htmlFor='requestSenderService'
-                          >Service Requesting
-                          </FormLabel> */}
-                          <Select
-                            borderWidth='2px'
-                            borderColor='primary'
-                            id='requestSenderService'
-                            bg='white'
-                            color='gray.900'
-                            _hover={{
-                              borderColor: 'hoverone',
-                              transition: 'all .8s ease',
-                              color: 'white',
-                              bg: 'gray'
-                            }}
-                            {...field}
-                          >
-                            {servicesOption.map(option => (
-                              <option
-                                key={option.value}
-                                value={option.value}
-                              >{option.key}</option>
-                            ))}
-                          </Select>
-                          <FormErrorMessage>{form.errors['requestSenderService']}</FormErrorMessage>
-                        </FormControl>
-                      )
-                    }
-                  }
-                </Field>
-
-                <Spacer py={2} />
 
                 <Field
                   name='requestSenderName'

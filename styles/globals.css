@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+#episodeSearchBar{
+  border: 2px solid blue;
+  color: black;
+}

@@ -48,6 +48,7 @@ export default function Episode({ episode }) {
           </Heading>
           <Text
             color='whiteAlpha.700'
+            isTruncated
           >
             {episode.episodeDescription}
           </Text>

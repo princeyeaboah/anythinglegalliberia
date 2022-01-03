@@ -33,10 +33,9 @@ const MobileOverlay = ({ bannerTexts }) => {
       textAlign='center'
       bg='primary'
     >
-      <Text
+      <Box
         color='white'
-
-      >The Home of Legal <Text color='red.600' display={'inline'}>Analysis</Text> and <Text color='red.600' display={'inline'}>Research</Text></Text>
+      >The Home of Legal <Text color='red.600' display={'inline'}>Analysis</Text> and <Text color='red.600' display={'inline'}>Research</Text></Box>
     </Box>
   )
 }

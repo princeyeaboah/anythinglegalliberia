@@ -1,16 +1,68 @@
+import { useState, useEffect } from 'react';
 import {
   Box,
   Flex,
   Stack,
   Heading,
   SimpleGrid,
-  Text
+  Text,
+  Input,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  InputGroup,
+  Icon,
+  InputLeftElement
 } from '@chakra-ui/react';
 import Header from '@/components/Header'
 import Episode from '@/components/Episode';
 import { getEpisodes } from '../services';
+import { SearchIcon } from '@chakra-ui/icons';
 
-const legalepisodes = ({ episodes }) => {
+const Legalepisodes = () => {
+
+  const [episodes, setEpisodes] = useState([]);
+  const [filters, setFilters] = useState({ s: '' });
+
+  const search = (s) => {
+    setFilters({ s })
+  }
+
+  useEffect(() => {
+
+    (async () => {
+      const data = await getEpisodes()
+      setEpisodes(data)
+    }
+    )()
+  }, [])
+
+  useEffect(() => {
+    (async () => {
+
+      /* let data = episodes.filter(episode => {
+        episode.episodeTitle.toLowerCase().indexOf(filters.s.toLowerCase()) >= 0
+      }) 
+      setEpisodes(data)
+      console.log(data)
+      */
+      let newData = [];
+
+      if (filters.s !== '') {
+        episodes.map(episode => {
+          if (episode.episodeTitle.toLowerCase().includes(filters.s.toLowerCase())) {
+            newData.push(episode)
+          }
+        })
+        setEpisodes(newData)
+      } else {
+        const data = await getEpisodes()
+        setEpisodes(data)
+      }
+    })()
+
+  }, [filters])
 
   return (
     <>
@@ -39,10 +91,35 @@ const legalepisodes = ({ episodes }) => {
           color='white'
         >
           <Text>
-            Episodes are automatically sorted by the most recent release
+            Episodes are automatically sorted by the most recent release.
           </Text>
         </Box>
         <Box
+          px={6}
+        >
+          <InputGroup>
+            <InputLeftElement
+              pointerEvents='none'
+              // eslint-disable-next-line react/no-children-prop
+              children={<SearchIcon color='blue' />}
+            />
+            <Input
+              size='md'
+              placeholder='Search Episode'
+              id='episodeSearchBar'
+              _placeholder={{
+                color: 'gray',
+                fontWeight: 'medium',
+                fontStyle: 'italic',
+                letterSpacing: 'wide'
+              }}
+              onKeyUp={e => search(e.target.value)}
+            />
+          </InputGroup>
+
+        </Box>
+        <Box
+          py={10}
         >
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             {episodes && episodes.map(episode => {
@@ -55,15 +132,16 @@ const legalepisodes = ({ episodes }) => {
   )
 }
 
-export default legalepisodes;
+export default Legalepisodes;
 
-export const getStaticProps = async () => {
-  const episodes = await getEpisodes()
+
+/* export const getStaticProps = async () => {
+  const fetchEpisodes = await getEpisodes()
 
   return {
     props: {
-      episodes,
+      fetchEpisodes,
     },
     revalidate: 10
   }
-}
+} */
